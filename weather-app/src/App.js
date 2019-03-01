@@ -20,7 +20,6 @@ class App extends Component {
 
   handleChange(val){
     console.log('handlingchange:', val);
-    this.setState({ postalCode: val });
   }
 
   handleClick(){
@@ -29,6 +28,8 @@ class App extends Component {
 
   render() {
 
+    let { postalCode, weatherData } = this.state;
+
     return (
       <div className="App">
         <div className="header">
@@ -36,12 +37,12 @@ class App extends Component {
         </div>
         <div className="content">
           <div className="inputs">
-            <span>Input Postal Code: </span>
-            <input onChange={e => this.handleChange(e.target.value)} type="text"/>
+            <span>Input Postal Code:</span>
+            <input onChange={e => this.handleChange(e.target.value)} type="number"/>
             <button onClick={() => this.handleClick()} >GO</button>
           </div>
           <hr/>
-          <Widget />
+          <Widget data={weatherData} />
         </div>
       </div>
     );
