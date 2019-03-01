@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import API_KEY from './private';
 
 import './App.css';
 import Widget from './components/Widget';
@@ -15,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    console.log(this.state);
+    // Axios.get()
   }
 
   handleChange(val){
@@ -28,7 +29,7 @@ class App extends Component {
 
   render() {
 
-    let { postalCode, weatherData } = this.state;
+    let { weatherData } = this.state;
 
     return (
       <div className="App">
