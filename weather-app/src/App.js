@@ -13,6 +13,8 @@ class App extends Component {
 
     this.state = {
       postalCode: 85209,
+      city: '',
+      state: '',
       weatherData: []
     }
   }
@@ -22,6 +24,7 @@ class App extends Component {
 
     Axios.get(`${BASE_URL}?postal_code=${postalCode}&country=US&key=${API_KEY}&hours=48&units=I`)
       .then( response => {
+        let { city_name, state_code } = response.data;
         let filteredData = response.data.data.filter( item => {
           let date = new Date(item.timestamp_utc);
           
@@ -31,7 +34,7 @@ class App extends Component {
           }
           return false;
         });
-        this.setState({ weatherData: filteredData });
+        this.setState({ weatherData: filteredData, city: city_name, state: state_code });
       })
       .catch( err => console.log(`Axios Err: ${err.message}`));
   }
@@ -50,7 +53,7 @@ class App extends Component {
 
   render() {
 
-    let { weatherData } = this.state;
+    let { weatherData, city, state, postalCode } = this.state;
 
     return (
       <div className="App">
@@ -60,11 +63,11 @@ class App extends Component {
         <div className="content">
           <div className="inputs">
             <span>Input US Postal Code:</span>
-            <input onChange={e => this.handleChange(e.target.value)} type="number"/>
+            <input onChange={e => this.handleChange(e.target.value)} value={postalCode} type="number"/>
             <button onClick={() => this.handleClick()} >GO</button>
           </div>
           <hr/>
-          <Widget data={weatherData} />
+          <Widget data={weatherData} city={city} state={state} />
         </div>
       </div>
     );
