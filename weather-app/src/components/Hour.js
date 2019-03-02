@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Hour(props){
 
-  let { hour, temp, coldest, hottest } = props;
+  let { hr, tmp, coldest, hottest } = props;
   let color = 'white';
 
   if (coldest){
@@ -13,8 +13,8 @@ export default function Hour(props){
 
   return (
     <div style={{ backgroundColor: color }}className="Hour">
-      <p>{hour}:</p>
-      <p>{temp}°</p>
+      <p>{hr}:</p>
+      <p>{tmp}°F</p>
     </div>
   );
 }

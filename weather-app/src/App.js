@@ -1,30 +1,51 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import API_KEY from './private';
-
 import './App.css';
 import Widget from './components/Widget';
+
+import API_KEY from './private';
+const BASE_URL = 'https://api.weatherbit.io/v2.0/forecast/hourly';
+let now = new Date(Date.now());
 
 class App extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      postalCode: 0,
+      postalCode: 85209,
       weatherData: []
     }
   }
 
+  getWeather(){
+    let { postalCode } = this.state;
+
+    Axios.get(`${BASE_URL}?postal_code=${postalCode}&country=US&key=${API_KEY}&hours=48&units=I`)
+      .then( response => {
+        let filteredData = response.data.data.filter( item => {
+          let date = new Date(item.timestamp_utc);
+          
+          let day = now.getDay() + 1;
+          if (date.getDay() === day){
+            return true;
+          }
+          return false;
+        });
+        this.setState({ weatherData: filteredData });
+      })
+      .catch( err => console.log(`Axios Err: ${err.message}`));
+  }
+
   componentDidMount(){
-    // Axios.get()
+    this.getWeather();
   }
 
   handleChange(val){
-    console.log('handlingchange:', val);
+    this.setState({ postalCode: val });
   }
 
   handleClick(){
-    console.log(this.state)
+    this.getWeather();
   }
 
   render() {
@@ -38,7 +59,7 @@ class App extends Component {
         </div>
         <div className="content">
           <div className="inputs">
-            <span>Input Postal Code:</span>
+            <span>Input US Postal Code:</span>
             <input onChange={e => this.handleChange(e.target.value)} type="number"/>
             <button onClick={() => this.handleClick()} >GO</button>
           </div>
