@@ -84,6 +84,14 @@ h2 {
   font-size: 24px;
 }
 
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: black;
+}
+
 hr {
   margin: 20px;
 }
@@ -96,6 +104,11 @@ button {
   box-shadow: 0px 3px 3px -1px grey;
   border-radius: 10px;
   padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(125%);
 }
 
 input {
@@ -113,6 +126,12 @@ input {
   background-color: #0A8DD9;
   padding: 15px;
   margin-bottom: 20px;
+}
+.App .footer {
+  background-color: #0A8DD9;
+  color: white;
+  padding: 20px 0px;
+  line-height: 1.25em;
 }
 
 /*# sourceMappingURL=App.css.map */

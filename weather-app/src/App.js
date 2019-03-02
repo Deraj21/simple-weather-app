@@ -69,6 +69,11 @@ class App extends Component {
           <hr/>
           <Widget data={weatherData} city={city} state={state} />
         </div>
+        <div className="footer">
+          <p>Author: Jared Tanner</p>
+          <p>This page was created using React.js + github-pages</p>
+          <p>Code can be found <a target="_blank" rel="noopener noreferrer" href="https://github.com/Deraj21/simple-weather-app">here</a></p>
+        </div>
       </div>
     );
   }
