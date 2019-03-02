@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/simple-weather-app/static/js/runtime~main.5baf778a.js"
   },
   {
-    "revision": "d8b7d5aaea7f3787f8b0",
-    "url": "/simple-weather-app/static/js/main.d8b7d5aa.chunk.js"
+    "revision": "4b59b58df377a83c52b7",
+    "url": "/simple-weather-app/static/js/main.4b59b58d.chunk.js"
   },
   {
     "revision": "deca9e114f260aeabf50",
     "url": "/simple-weather-app/static/js/2.deca9e11.chunk.js"
   },
   {
-    "revision": "d8b7d5aaea7f3787f8b0",
-    "url": "/simple-weather-app/static/css/main.3a279380.chunk.css"
+    "revision": "4b59b58df377a83c52b7",
+    "url": "/simple-weather-app/static/css/main.2492c28c.chunk.css"
   },
   {
-    "revision": "c9a9e5524377bd298f92ba359b84aa56",
+    "revision": "a10d1dcd2d386dfcfd0d0ce57b085df8",
     "url": "/simple-weather-app/index.html"
   }
 ];
